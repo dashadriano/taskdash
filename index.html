@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/imgs/tasklist.png" type="image/png">
+    <meta name="google" content="notranslate" />
+    <title>taskdash</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="main-layout">
+        <!-- pomodoro timer -->
+        <div class="pomodoro">
+            <h2>Pomodoro Timer</h2>
+            <div class="timer-display" id="timer">25:00</div>
+            <div class="timer-controls">
+                <button id="start-timer" aria-label="Start Timer">
+                    <img src="imgs/light-mode/start.svg" alt="Start" />
+                </button>
+                <button id="reset-timer" aria-label="Reset Timer">
+                    <img src="imgs/light-mode/reset.svg" alt="Reset" />
+                </button>
+            </div>
+        </div>
+
+        <!-- toDo app -->
+        <div class="todo-app">
+            <h2 class="title">
+                task<span>dash</span>
+                <img src="imgs/light-mode/dashboard.svg" alt="Checklist icon" />
+            </h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add new task.." aria-label="Task text input" />
+                <button id="add-btn" aria-label="Add task button">Add</button>
+            </div>
+            <ul id="list-container"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
