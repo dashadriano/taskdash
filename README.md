@@ -6,7 +6,7 @@ Minimalist productivity web app that combines a to-do list and Pomodoro timer, b
 # Access
 View and interact with the project through the link under the project description on your screen's right side. Alternatively, through direct access via any browser at [dashadriano.github.io/taskdash](https://dashadriano.github.io/taskdash).
 
-# Development
+# Development and Description
 `taskdash` is a web-based productivity application, utilizing minimalistic design to allow less clutter for users. Built using a basic web development stack. (HTML, CSS, and JavaScript) 
 
 The project offers two key productivity tools in a single interface, namely: 
