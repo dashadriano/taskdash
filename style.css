@@ -10,7 +10,16 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+    background: linear-gradient(135deg, var(--main-color), var(--off-main-color));
 }
 
 .main-layout {
@@ -20,7 +29,6 @@
     min-height: 100vh;
     padding: 10px;
     gap: 10px;
-    background: linear-gradient(135deg, var(--main-color), var(--off-main-color));
     align-items: center;
     justify-content: center;
 }
@@ -213,4 +221,106 @@ input:disabled {
     background-color: #F0F0F0;
     color: #999;
     cursor: not-allowed;
+}
+
+@media (min-width: 769px) and (max-width: 869px) {
+    .main-layout {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px 5px;
+    }
+
+    .pomodoro {
+        width: 220px; 
+        padding: 25px;
+    }
+
+    .pomodoro h2 {
+        font-size: 1.2rem;
+    }
+
+    .todo-app {
+        width: 420px;  
+        padding: 40px 30px 70px;
+    }
+
+    .timer-display {
+        font-size: 36px;
+    }
+
+    .todo-app h2 {
+        font-size: 1.4rem;
+    }
+
+    button {
+        padding: 12px 35px;
+        font-size: 14px;
+    }
+
+    .row {
+        padding-left: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 5px; 
+        align-items: center;
+    }
+
+    .pomodoro {
+        width: 260px;
+        border-radius: 25px;
+        padding-top: 15px;
+        order: 2;
+        margin-bottom: 25px;
+    }
+
+    .timer-display {
+        font-size: 36px;
+    }
+
+    .pomodoro h2 {
+        display: none;
+    }
+
+    .todo-app {
+        width: 100%;
+        max-width: 90vw;  
+        margin: 25px;
+        padding: 45px 35px 65px;
+        border-radius: 20px;
+        width: 425px;
+        order: 1;
+    }
+
+    .row {
+        display: flex;
+        gap: 0; 
+        padding: 0;
+        align-items: center; 
+    }
+
+    input {
+        flex: 1;
+        padding: 10px 15px; 
+        height: 40px; 
+        line-height: normal;
+        font-size: 16px;
+    }
+
+    input:disabled {
+        border-radius: 30px;
+    }
+
+    button {
+        width: auto;
+        padding: 10px 25px; 
+        height: 40px; 
+        border-radius: 30px; 
+    }
 }

@@ -2,22 +2,23 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const addButton = document.getElementById("add-btn");
+const TASK_LIMIT = 5;
 
 function addTask() {
     const currentTasks = listContainer.querySelectorAll("li").length;
 
-    if (currentTasks >= 7) {
+    if (currentTasks >= TASK_LIMIT) {
         addButton.classList.add("shake");
         setTimeout(() => { addButton.classList.remove("shake"); }, 400);
         return;
     }
 
     if (inputBox.value.trim() !== '') {
-        let li = document.createElement("li");
+        const li = document.createElement("li");
         li.textContent = inputBox.value;
         listContainer.appendChild(li);
 
-        let span = document.createElement("span");
+        const span = document.createElement("span");
         span.textContent = "\u00d7";
         li.appendChild(span);
 
@@ -61,13 +62,13 @@ function showList() {
 
 function enforceTaskLimit() {
     const currentTasks = listContainer.querySelectorAll("li").length;
-    const limitReached = currentTasks >= 7;
+    const limitReached = currentTasks >= TASK_LIMIT;
 
     inputBox.disabled = limitReached;
     addButton.disabled = limitReached;
 
     inputBox.placeholder = limitReached
-        ? "Finish a task first before adding!"
+        ? `Task limit reached! (${TASK_LIMIT})`
         : "Add new task..";
 }
 
