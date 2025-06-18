@@ -10,17 +10,32 @@
 </head>
 <body>
     <div class="main-layout">
-        <!-- pomodoro timer -->
-        <div class="pomodoro">
-            <h2>Pomodoro Timer</h2>
-            <div class="timer-display" id="timer">25:00</div>
-            <div class="timer-controls">
-                <button id="start-timer" aria-label="Start Timer">
-                    <img src="imgs/light-mode/start.svg" alt="Start" />
-                </button>
-                <button id="reset-timer" aria-label="Reset Timer">
-                    <img src="imgs/light-mode/reset.svg" alt="Reset" />
-                </button>
+        <div class="left-pane">
+            <!-- goals list -->
+            <div class="widget" id="goals">
+                <div class="row" id="goals-input-area">
+                    <input type="text" id="goal-input-box" placeholder="What's your main goal?" aria-label="Goal text input" />
+                    <button id="add-goal-btn" aria-label="Add goal button">
+                        <img src="imgs/goal.svg" alt="Add Goal" />
+                    </button>
+                </div>
+                <ul id="goals-container"></ul>
+            </div>
+                
+            <!-- pomodoro timer -->
+            <div class="widget" id="pomodoro">
+                <h2>Pomodoro Timer</h2>
+                <div class="timer-row">
+                    <div class="timer-display" id="timer">25:00</div>
+                    <div class="timer-controls">
+                        <button id="start-timer" aria-label="Start Timer">
+                            <img src="imgs/light-mode/start.svg" alt="Start" />
+                        </button>
+                        <button id="reset-timer" aria-label="Reset Timer">
+                            <img src="imgs/light-mode/reset.svg" alt="Reset" />
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -32,7 +47,7 @@
             </h2>
             <div class="row">
                 <input type="text" id="input-box" placeholder="Add new task.." aria-label="Task text input" />
-                <button id="add-btn" aria-label="Add task button">Add</button>
+                <button id="add-task-btn" aria-label="Add task button">Add</button>
             </div>
             <ul id="list-container"></ul>
         </div>

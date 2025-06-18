@@ -1,15 +1,15 @@
 // TO-DO LIST LOGIC
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
-const addButton = document.getElementById("add-btn");
+const addTaskButton = document.getElementById("add-task-btn");
 const TASK_LIMIT = 5;
 
 function addTask() {
     const currentTasks = listContainer.querySelectorAll("li").length;
 
     if (currentTasks >= TASK_LIMIT) {
-        addButton.classList.add("shake");
-        setTimeout(() => { addButton.classList.remove("shake"); }, 400);
+        addTaskButton.classList.add("shake");
+        setTimeout(() => { addTaskButton.classList.remove("shake"); }, 400);
         return;
     }
 
@@ -23,22 +23,21 @@ function addTask() {
         li.appendChild(span);
 
         inputBox.value = "";
-        saveData();
+        saveTaskData();
         enforceTaskLimit(); // check if limit reached
     } else {
-        addButton.classList.add("shake");
-        setTimeout(() => { addButton.classList.remove("shake"); }, 400);
+        addTaskButton.classList.add("shake");
+        setTimeout(() => { addTaskButton.classList.remove("shake"); }, 400);
     }
 }
-
 
 listContainer.addEventListener("click", function(e) {
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("checked");
-        saveData();
+        saveTaskData();
     } else if (e.target.tagName === "SPAN") {
         e.target.parentElement.remove();
-        saveData();
+        saveTaskData();
         enforceTaskLimit();
     }
 });
@@ -49,14 +48,14 @@ inputBox.addEventListener("keypress", function(e) {
     }
 });
 
-document.getElementById("add-btn").addEventListener("click", addTask);
+document.getElementById("add-task-btn").addEventListener("click", addTask);
 
-function saveData() {
-    localStorage.setItem("data", listContainer.innerHTML);
+function saveTaskData() {
+    localStorage.setItem("tasks-data", listContainer.innerHTML);
 }
 
 function showList() {
-    listContainer.innerHTML = localStorage.getItem("data");
+    listContainer.innerHTML = localStorage.getItem("tasks-data");
     enforceTaskLimit();
 }
 
@@ -65,7 +64,7 @@ function enforceTaskLimit() {
     const limitReached = currentTasks >= TASK_LIMIT;
 
     inputBox.disabled = limitReached;
-    addButton.disabled = limitReached;
+    addTaskButton.disabled = limitReached;
 
     inputBox.placeholder = limitReached
         ? `Task limit reached! (${TASK_LIMIT})`
@@ -73,6 +72,82 @@ function enforceTaskLimit() {
 }
 
 showList();
+
+// GOAL LIST LOGIC
+const goalInputBox = document.getElementById("goal-input-box");
+const goalsContainer = document.getElementById("goals-container");
+const GOAL_LIMIT = 1;
+
+function addGoal() {
+    const currentGoals = goalsContainer.querySelectorAll("li").length;
+
+    if (currentGoals >= GOAL_LIMIT) {
+        addGoalButton.classList.add("shake");
+        setTimeout(() => { addGoalButton.classList.remove("shake"); }, 400);
+        return;
+    }
+
+    if (goalInputBox.value.trim() !== '') {
+        const li = document.createElement("li");
+        li.textContent = goalInputBox.value;
+        goalsContainer.appendChild(li);
+
+        const span = document.createElement("span");
+        span.textContent = "\u00d7";
+        li.appendChild(span);
+
+        goalInputBox.value = "";
+        saveGoalData();
+        enforceGoalLimit(); // check if limit reached
+    } else {
+        addGoalButton.classList.add("shake");
+        setTimeout(() => { addGoalButton.classList.remove("shake"); }, 400);
+    }
+}
+
+function enforceGoalLimit() {
+    const currentGoals = goalsContainer.querySelectorAll("li").length;
+    const limitReached = currentGoals >= GOAL_LIMIT;
+
+    goalInputBox.disabled = limitReached;
+    addGoalButton.disabled = limitReached;
+
+    goalInputBox.placeholder = limitReached
+        ? `Your main goal is:`
+        : "What's your main goal?";
+}
+
+const addGoalButton = document.getElementById("add-goal-btn");
+
+goalInputBox.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        addGoal();
+    }
+});
+
+goalsContainer.addEventListener("click", function(e) {
+    if (e.target.tagName === "LI") {
+        e.target.classList.toggle("checked");
+        saveGoalData();
+    } else if (e.target.tagName === "SPAN") {
+        e.target.parentElement.remove();
+        saveGoalData();
+        enforceGoalLimit();
+    }
+});
+
+addGoalButton.addEventListener("click", addGoal);
+
+function saveGoalData() {
+    localStorage.setItem("goals-data", goalsContainer.innerHTML);
+}
+
+function showGoals() {
+    goalsContainer.innerHTML = localStorage.getItem("goals-data");
+    enforceGoalLimit();
+}
+
+showGoals();
 
 // POMODORO TIMER LOGIC
 let timer;
