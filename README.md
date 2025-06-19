@@ -19,4 +19,4 @@ The project offers three key productivity tools in a single interface, namely:
 
 The app was developed with user experience in mind, which led the developer to opt for a clean, minimal, and accessible UI. In line with this, dynamic design to cater to different screen sizes have been implemented. Currently the project’s development is still ongoing, with further improvements lined up such as a multipage layout that utilizes a proper navigation bar to mitigate view clutter. The developer’s goal was to combine separate, commonly used productivity tools into a compact tool that’s both lightweight and distraction-free––through the help of the minimal design utilized by the developer. The current app version's data storage is entirely run on the client’s side, removing the necessity of backend and external dependencies.  
 
-Currently, there's an issue with the mobile view design—— to be fixed soon. The desktop view version is operational.
+No issues found in current build.
