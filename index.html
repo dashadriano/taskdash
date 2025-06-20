@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" href="imgs/tasklist.png" type="image/png">
     <meta name="google" content="notranslate" />
     <title>taskdash</title>
@@ -14,7 +14,7 @@
             <!-- goals list -->
             <div class="widget" id="goals">
                 <div class="row" id="goals-input-area">
-                    <input type="text" id="goal-input-box" placeholder="What's your main goal?" aria-label="Goal text input" />
+                    <input type="text" id="goal-input-box" placeholder="What's your main goal?" aria-label="Goal text input" autocomplete="off" />
                     <button id="add-goal-btn" aria-label="Add goal button">
                         <img src="imgs/goal.svg" alt="Add Goal" />
                     </button>
@@ -46,7 +46,8 @@
                 <img src="imgs/light-mode/dashboard.svg" alt="Checklist icon" />
             </h2>
             <div class="row">
-                <input type="text" id="input-box" placeholder="Add new task.." aria-label="Task text input" />
+                <input type="text" id="input-box" placeholder="Add new task.." aria-label="Task text input" autocomplete="off" />
+
                 <button id="add-task-btn" aria-label="Add task button">Add</button>
             </div>
             <ul id="list-container"></ul>

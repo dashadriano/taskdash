@@ -42,7 +42,7 @@ listContainer.addEventListener("click", function(e) {
     }
 });
 
-inputBox.addEventListener("keypress", function(e) {
+inputBox.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         addTask();
     }
@@ -118,7 +118,7 @@ function enforceGoalLimit() {
         : "What's your main goal?";
 }
 
-goalInputBox.addEventListener("keypress", function(e) {
+goalInputBox.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         addGoal();
     }
