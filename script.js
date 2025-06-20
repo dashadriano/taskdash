@@ -67,7 +67,7 @@ function enforceTaskLimit() {
     addTaskButton.disabled = limitReached;
 
     inputBox.placeholder = limitReached
-        ? `Task limit reached! (${TASK_LIMIT})`
+        ? `Task limit reached!`
         : "Add new task..";
 }
 
@@ -76,6 +76,7 @@ showList();
 // GOAL LIST LOGIC
 const goalInputBox = document.getElementById("goal-input-box");
 const goalsContainer = document.getElementById("goals-container");
+const addGoalButton = document.getElementById("add-goal-btn");
 const GOAL_LIMIT = 1;
 
 function addGoal() {
@@ -116,8 +117,6 @@ function enforceGoalLimit() {
         ? `Your main goal is:`
         : "What's your main goal?";
 }
-
-const addGoalButton = document.getElementById("add-goal-btn");
 
 goalInputBox.addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
